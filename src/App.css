@@ -20,18 +20,26 @@ box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 flex-grow: 1;
 min-width: 150px;
 max-width: 400px;
-font-size: 2rem;
+font-size: 1.4rem;
 
 }
 form button{
   border-radius: 6px 9px;
   background-color: black;
   color:white;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 1.9rem;
+  font-weight: lighter;
 }
-form > button::after {
+form > button::before {
   content: "+";
   margin-right: 5px;
 } 
+input:focus {
+  border: 2px solid blue;
+  outline: none;
+  background-color: #f0f8ff;
+}
 
+input:active {
+  border: 2px solid #0051ff;
+}
