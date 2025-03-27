@@ -3,16 +3,14 @@ import { useState } from "react";
 export default function Main(){
     // const ingredients = ["Chicken", "Oregano", "Tomatoes"]
     const [ingredients,setIngredients]=useState(["Chicken", "Oregano", "Tomatoes"])
-    function handleSumbit(e){
+    function addIngredient(e){
         debugger;
-        e.preventDefault();
-        let formData= new FormData(e.currentTarget);
-        let value=formData.get("ingredient");
+        let value=e.get("ingredient");
         // let value=e.target.elements.ingredient.value;
         if(value){
             setIngredients([...ingredients,value]);
         }
-        e.currentTarget.reset();
+        // e.reset();
         console.log("submit btn");
     }
     const [count,setCount]=useState(0);
@@ -44,7 +42,7 @@ export default function Main(){
   
     return (
         <main>
-            <form onSubmit={handleSumbit} className="">
+            <form action={addIngredient} className="" method="post">
                 <input type="text" placeholder="eg. oregano" name="ingredient"/>
                 <button>Add Ingredient</button>
             </form>
