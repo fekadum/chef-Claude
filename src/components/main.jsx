@@ -26,6 +26,22 @@ export default function Main(){
         setCount(prev=>prev>0?prev-1:0)
         
     }
+
+    // adding elements to new array
+    const myFavoriteThings = []
+    const [myfavoritelists,setmyfavoriteslsts]=useState(myFavoriteThings);
+    const [index,setIndex]=useState(0);
+    
+  const allFavoriteThings = ["💦🌹", "😺", "💡🫖", "🔥🧤", "🟤🎁", 
+  "🐴", "🍎🥧", "🚪🔔", "🛷🔔", "🥩🍝"]
+  const thingsElements = myfavoritelists.map(thing => <p key={thing}>{thing}</p>)
+
+  function addFavoriteThing() {
+    setmyfavoriteslsts([...myfavoritelists,allFavoriteThings[index]]);
+    setIndex(prev=>prev+1);
+    // We'll work on this next, nothing to do here yet.
+  }
+  
     return (
         <main>
             <form onSubmit={handleSumbit} className="">
@@ -40,6 +56,10 @@ export default function Main(){
                     <li key={key}>{ingredient}</li>
                 ))}
             </ul>
+            <button onClick={addFavoriteThing}>Add item</button>
+      <section aria-live="polite">
+        {thingsElements}
+      </section>
         </main>
     )
 }
